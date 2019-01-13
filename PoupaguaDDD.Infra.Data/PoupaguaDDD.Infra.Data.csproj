@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D975C44E-3464-4D98-AC55-0240DCF5B56F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PoupaguaDDD.Infra.Data</RootNamespace>
+    <AssemblyName>PoupaguaDDD.Infra.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\PoupaguaContext.cs" />
+    <Compile Include="EntityConfig\ContaDeAguaConfiguration.cs" />
+    <Compile Include="EntityConfig\EnderecoCompletoConfiguration.cs" />
+    <Compile Include="EntityConfig\EnderecoDoPredioConfiguration.cs" />
+    <Compile Include="EntityConfig\MetaGeralConfiguration.cs" />
+    <Compile Include="EntityConfig\MetaIndividualConfiguration.cs" />
+    <Compile Include="EntityConfig\MoradorConfiguration.cs" />
+    <Compile Include="EntityConfig\PerfilDeConsumoConfiguration.cs" />
+    <Compile Include="EntityConfig\PontoDeConsumoConfiguration.cs" />
+    <Compile Include="EntityConfig\PrecoDaTarifaConfiguration.cs" />
+    <Compile Include="EntityConfig\PredioConfiguration.cs" />
+    <Compile Include="EntityConfig\TarifaConfiguration.cs" />
+    <Compile Include="EntityConfig\UnidadeConsumidoraConfiguration.cs" />
+    <Compile Include="EntityConfig\UsuarioConfiguration.cs" />
+    <Compile Include="EntityConfig\ValorAlertaGeralConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\RepositoryBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PoupaguaDDD.Domain\PoupaguaDDD.Domain.csproj">
+      <Project>{0ca06749-50dc-43d9-957e-58d2a4c9abaf}</Project>
+      <Name>PoupaguaDDD.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
