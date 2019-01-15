@@ -20,15 +20,15 @@ namespace PoupaguaDDD.Infra.Data.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Db.Dispose();
         }
 
-        public ICollection<TEntity> GetAll()
+        public IEnumerable<TEntity> GetAll()
         {
             return Db.Set<TEntity>().ToList();
         }
 
-        public ICollection<TEntity> GetAllAsNoTracking()
+        public IEnumerable<TEntity> GetAllAsNoTracking()
         {
             return Db.Set<TEntity>().AsNoTracking().ToList();
         }

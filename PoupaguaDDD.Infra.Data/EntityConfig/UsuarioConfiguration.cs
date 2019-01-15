@@ -25,6 +25,8 @@ namespace PoupaguaDDD.Infra.Data.EntityConfig
 
             HasOptional(x => x.Endereco).WithRequired(x => x.Usuario);
             HasOptional(x => x.UnidadeConsumidora).WithRequired(x => x.Usuario);
+
+            HasIndex(x => x.Email).IsUnique();
         }
     }
 }

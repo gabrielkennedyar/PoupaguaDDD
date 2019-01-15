@@ -48,7 +48,21 @@
     <Compile Include="Entities\UnidadeConsumidora.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\ValorAlertaGeral.cs" />
+    <Compile Include="Interfaces\Repositories\IContaDeAguaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEnderecoCompletoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IEnderecoDoPredioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMetaGeralRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMetaIndividualRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMoradorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPerfilDeConsumoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPontoDeConsumoRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPrecoDaTarifaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPredioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\ITarifaRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUnidadeConsumidoraRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IValorAlertaGeralRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

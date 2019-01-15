@@ -58,7 +58,21 @@
     <Compile Include="EntityConfig\ValorAlertaGeralConfiguration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ContaDeAguaRepository.cs" />
+    <Compile Include="Repositories\EnderecoCompletoRepository.cs" />
+    <Compile Include="Repositories\EnderecoDoPredioRepository.cs" />
+    <Compile Include="Repositories\MetaGeralRepository.cs" />
+    <Compile Include="Repositories\MetaIndividualRepository.cs" />
+    <Compile Include="Repositories\MoradorRepository.cs" />
+    <Compile Include="Repositories\PerfilDeConsumoRepository.cs" />
+    <Compile Include="Repositories\PontoDeConsumoRepository.cs" />
+    <Compile Include="Repositories\PrecoDaTarifaRepository.cs" />
+    <Compile Include="Repositories\PredioRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\TarifaRepository.cs" />
+    <Compile Include="Repositories\UnidadeConsumidoraRepository.cs" />
+    <Compile Include="Repositories\UsuarioRepository.cs" />
+    <Compile Include="Repositories\ValorAlertaGeralRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PoupaguaDDD.Domain\PoupaguaDDD.Domain.csproj">
