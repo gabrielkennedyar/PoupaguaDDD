@@ -15,13 +15,13 @@ namespace PoupaguaDDD.Domain.Entities
 
         public virtual ICollection<PrecoDaTarifa> PrecosDasTarifas { get; set; }
 
-        public float CalcularTarifa(int mediaDeLitros)
+        public float CalcularTarifa(Tarifa tarifaParaCalculo, int mediaDeLitros)
         {
-            float precoEstimado = PrecosDasTarifas.Sum(x => x.CalcularPreco(mediaDeLitros)); //Verificar como o entity framework irá mapear o ICollection
+            float precoEstimado = tarifaParaCalculo.PrecosDasTarifas.Sum(x => x.CalcularPreco(x, mediaDeLitros)); //Verificar como o entity framework irá mapear o ICollection
 
-            if (PrecoDoEsgoto != 0)
+            if (tarifaParaCalculo.PrecoDoEsgoto != 0)
             {
-                precoEstimado *= PrecoDoEsgoto;
+                precoEstimado *= tarifaParaCalculo.PrecoDoEsgoto;
             }
             return precoEstimado;
         }

@@ -12,15 +12,15 @@ namespace PoupaguaDDD.Domain.Entities
         public int UnidadeConsumidoraId { get; set; }
         public virtual UnidadeConsumidora UnidadeConsumidora { get; set; }
 
-        public bool UltrapassouEconomia(int quantidadeUsadaEmLitros)
+        public bool VerificarSeUltrapassouEconomia(MetaIndividual ultimaMetaIndividualDaUC, int quantidadeUsadaEmLitros)
         {
             double quantidadeEmM3 = (quantidadeUsadaEmLitros / 1000);
-            return (QuantidadeDeEconomiaEmM3 > quantidadeEmM3);
+            return (ultimaMetaIndividualDaUC.QuantidadeDeEconomiaEmM3 > quantidadeEmM3);
         }
 
-        public double CalculaDiferencaEmM3DaMeta(int quantidadeUsadaEmLitros)
+        public double CalcularDiferencaEmM3DaMeta(MetaIndividual ultimaMetaIndividualDaUC, int quantidadeUsadaEmLitros)
         {
-            return (QuantidadeDeEconomiaEmM3 - (quantidadeUsadaEmLitros / 1000));
+            return (ultimaMetaIndividualDaUC.QuantidadeDeEconomiaEmM3 - (quantidadeUsadaEmLitros / 1000));
         }
     }
 }

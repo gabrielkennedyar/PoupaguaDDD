@@ -24,11 +24,11 @@ namespace PoupaguaDDD.Domain.Entities
         /// <param name="sexta"></param>
         /// <param name="sabado"></param>
         /// <returns></returns>
-        public double CalcularMediaDeHorasEmCasa(int domingo, int segunda, int terca, int quarta, int quinta, int sexta, int sabado)
+        public double CalcularMediaDeHorasEmCasa(Morador moradorDoPredio, int domingo, int segunda, int terca, int quarta, int quinta, int sexta, int sabado)
         {
             float media = (domingo + segunda + terca + quarta + quinta + sexta + sabado) / 7;
-            MediaDeHoras = media;
-            return MediaDeHoras;
+            moradorDoPredio.MediaDeHoras = media;
+            return moradorDoPredio.MediaDeHoras;
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace PoupaguaDDD.Domain.Entities
         /// </summary>
         /// <param name="moradoresDoPredio"></param>
         /// <returns></returns>
-        public double CalcularPorcentagemDeUso(ICollection<Morador> moradoresDoPredio)
+        public double CalcularPorcentagemDeUso(ICollection<Morador> moradoresDoPredio, Morador moradorParaCalculo)
         {
             double horasEmCasaTotalDosMoradoresDoPredio = 0;
 
@@ -46,7 +46,7 @@ namespace PoupaguaDDD.Domain.Entities
             }
             if (horasEmCasaTotalDosMoradoresDoPredio != 0)
             {
-                double porcentagemDeUso = (MediaDeHoras / horasEmCasaTotalDosMoradoresDoPredio); //retorna um número do formato 0,xx que representa a porcentagem do morador
+                double porcentagemDeUso = (moradorParaCalculo.MediaDeHoras / horasEmCasaTotalDosMoradoresDoPredio); //retorna um número do formato 0,xx que representa a porcentagem do morador
                 return porcentagemDeUso;
             }
             return 0;

@@ -4,7 +4,7 @@ namespace PoupaguaDDD.Domain.Interfaces.Services
 {
     public interface IMetaGeralService : IServiceBase<MetaGeral>
     {
-        bool UltrapassouMetaDeUso(int quantidadeUsadaEmLitros);
-        double CalculaDiferencaEmLitrosDaMeta(int quantidadeUsadaEmLitros);
+        bool VerificarSeUltrapassouMetaDeUso(MetaGeral ultimaMetaGeralDoPredio, int quantidadeUsadaEmLitros);
+        double CalcularDiferencaEmLitrosDaMeta(MetaGeral ultimaMetaGeralDoPredio, int quantidadeUsadaEmLitros);
     }
 }

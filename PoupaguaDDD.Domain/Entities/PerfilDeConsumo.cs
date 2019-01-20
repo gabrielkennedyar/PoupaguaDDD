@@ -19,10 +19,10 @@ namespace PoupaguaDDD.Domain.Entities
         /// <param name="moradoresDaUC"></param>
         /// <param name="contasPassadasDoPredio"></param>
         /// <returns></returns>
-        public double CalcularQuantDeLitrosAcumuladosNoMes(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio)
+        public double CalcularQuantDeLitrosAcumuladosNoMes(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio, PerfilDeConsumo perfilDeConsumoDoUsuario)
         {
             int diaAtual = DateTime.Today.Day;
-            double consumoDiario = CalculaMediaDiariaDeLitrosUtilizados(moradoresDoPredio, moradoresDaUC, contasPassadasDoPredio);
+            double consumoDiario = CalcularMediaDiariaDeLitrosUtilizados(moradoresDoPredio, moradoresDaUC, contasPassadasDoPredio, perfilDeConsumoDoUsuario);
             double consumoAcumulado = consumoDiario * diaAtual;
             return consumoAcumulado;
         }
@@ -34,9 +34,9 @@ namespace PoupaguaDDD.Domain.Entities
         /// <param name="moradoresDaUC"></param>
         /// <param name="contasPassadasDoPredio"></param>
         /// <returns></returns>
-        public double CalculaMediaDiariaDeLitrosUtilizados(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio)
+        public double CalcularMediaDiariaDeLitrosUtilizados(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio, PerfilDeConsumo perfilDeConsumoDoUsuario)
         {
-            double mediaMensal = AtribuirMediaDeConsumoMensalDaUC(moradoresDoPredio, moradoresDaUC, contasPassadasDoPredio);
+            double mediaMensal = AtribuirMediaDeConsumoMensalDaUC(moradoresDoPredio, moradoresDaUC, contasPassadasDoPredio, perfilDeConsumoDoUsuario);
             int diasDoMesAtual = DateTime.DaysInMonth(DateTime.Today.Year, DateTime.Today.Month);
             double consumoDiario = (mediaMensal / diasDoMesAtual);
             return consumoDiario;
@@ -49,17 +49,17 @@ namespace PoupaguaDDD.Domain.Entities
         /// <param name="moradoresDaUC"></param>
         /// <param name="contasPassadasDoPredio"></param>
         /// <returns></returns>
-        private double AtribuirMediaDeConsumoMensalDaUC(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio)
+        private double AtribuirMediaDeConsumoMensalDaUC(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio, PerfilDeConsumo perfilDeConsumoDoUsuario)
         {
             double litrosTotais = contasPassadasDoPredio.Average(x => x.LitrosUtilizados);
             double litrosDaUnidadeConsumidora = 0;
 
             foreach (var moradorDaUC in moradoresDaUC)
             {
-                litrosDaUnidadeConsumidora += litrosTotais * moradorDaUC.CalcularPorcentagemDeUso(moradoresDoPredio);
+                litrosDaUnidadeConsumidora += litrosTotais * moradorDaUC.CalcularPorcentagemDeUso(moradoresDoPredio, moradorDaUC);
             }
-            MediaDeConsumoMensal = litrosDaUnidadeConsumidora;
-            return MediaDeConsumoMensal;
+            perfilDeConsumoDoUsuario.MediaDeConsumoMensal = litrosDaUnidadeConsumidora;
+            return perfilDeConsumoDoUsuario.MediaDeConsumoMensal;
         }
     }
 }

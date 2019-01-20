@@ -12,9 +12,9 @@ namespace PoupaguaDDD.Domain.Entities
         public int TarifaId { get; set; }
         public virtual Tarifa Tarifa { get; set; }
 
-        public float CalcularPreco(int mediaDeLitros)
+        public float CalcularPreco(PrecoDaTarifa precoDaTarifaParaCalculo, int mediaDeLitros)
         {
-            return ((mediaDeLitros / 1000) * PrecoMilLitros);
+            return ((mediaDeLitros / 1000) * precoDaTarifaParaCalculo.PrecoMilLitros);
         }
     }
 }

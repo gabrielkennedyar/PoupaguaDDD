@@ -4,6 +4,6 @@ namespace PoupaguaDDD.Domain.Interfaces.Services
 {
     public interface ITarifaService : IServiceBase<Tarifa>
     {
-        float CalcularTarifa(int mediaDeLitros);
+        float CalcularTarifa(Tarifa tarifaParaCalculo, int mediaDeLitros);
     }
 }

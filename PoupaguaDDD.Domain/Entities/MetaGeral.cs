@@ -12,14 +12,14 @@ namespace PoupaguaDDD.Domain.Entities
         public int PredioId { get; set; }
         public virtual Predio Predio { get; set; }
 
-        public bool UltrapassouMetaDeUso(int quantidadeUsadaEmLitros)
+        public bool VerificarSeUltrapassouMetaDeUso(MetaGeral ultimaMetaGeralDoPredio, int quantidadeUsadaEmLitros)
         {
-            return (quantidadeUsadaEmLitros > QuantidadeEmLitros);
+            return (quantidadeUsadaEmLitros > ultimaMetaGeralDoPredio.QuantidadeEmLitros);
         }
 
-        public double CalculaDiferencaEmLitrosDaMeta(int quantidadeUsadaEmLitros)
+        public double CalcularDiferencaEmLitrosDaMeta(MetaGeral ultimaMetaGeralDoPredio, int quantidadeUsadaEmLitros)
         {
-            return (QuantidadeEmLitros - quantidadeUsadaEmLitros);
+            return (ultimaMetaGeralDoPredio.QuantidadeEmLitros - quantidadeUsadaEmLitros);
         }
     }
 }
