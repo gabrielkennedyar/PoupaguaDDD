@@ -10,7 +10,7 @@ namespace PoupaguaDDD.Infra.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(PoupaguaContext context)

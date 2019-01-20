@@ -1,15 +1,13 @@
 ﻿using PoupaguaDDD.Domain.Entities;
 using PoupaguaDDD.Infra.Data.EntityConfig;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PoupaguaDDD.Infra.Data.Context
 {
+    [DbConfigurationType(typeof(PoupaguaContextConfiguration))]
     public class PoupaguaContext : DbContext
     {
         public PoupaguaContext() : base("Poupagua") { }
@@ -34,7 +32,7 @@ namespace PoupaguaDDD.Infra.Data.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-            
+
             modelBuilder.Properties().Where(x => x.Name == "Id").Configure(x => x.IsKey());
             modelBuilder.Properties().Where(x => x.Name == "DataCadastro").Configure(x => x.IsRequired());
 

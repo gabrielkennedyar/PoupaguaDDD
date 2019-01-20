@@ -41,6 +41,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\PoupaguaContextConfiguration.cs" />
     <Compile Include="Context\PoupaguaContext.cs" />
     <Compile Include="EntityConfig\ContaDeAguaConfiguration.cs" />
     <Compile Include="EntityConfig\EnderecoCompletoConfiguration.cs" />

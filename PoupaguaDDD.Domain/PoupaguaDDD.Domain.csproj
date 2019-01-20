@@ -63,10 +63,24 @@
     <Compile Include="Interfaces\Repositories\IUnidadeConsumidoraRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Interfaces\Repositories\IValorAlertaGeralRepository.cs" />
+    <Compile Include="Interfaces\Services\IEnderecoDoPredioService.cs" />
+    <Compile Include="Interfaces\Services\IContaDeAguaService.cs" />
+    <Compile Include="Interfaces\Services\IEnderecoCompletoService.cs" />
+    <Compile Include="Interfaces\Services\IMetaGeralService.cs" />
+    <Compile Include="Interfaces\Services\IMetaIndividualService.cs" />
+    <Compile Include="Interfaces\Services\IMoradorService.cs" />
+    <Compile Include="Interfaces\Services\IPerfilDeConsumoService.cs" />
+    <Compile Include="Interfaces\Services\IPontoDeConsumoService.cs" />
+    <Compile Include="Interfaces\Services\IPrecoDaTarifaService.cs" />
+    <Compile Include="Interfaces\Services\IPredioService.cs" />
+    <Compile Include="Interfaces\Services\IServiceBase.cs" />
+    <Compile Include="Interfaces\Services\ITarifaService.cs" />
+    <Compile Include="Interfaces\Services\IUnidadeConsumidoraService.cs" />
+    <Compile Include="Interfaces\Services\IUsuarioService.cs" />
+    <Compile Include="Interfaces\Services\IValorAlertaGeralService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

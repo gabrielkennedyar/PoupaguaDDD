@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PoupaguaDDD.Domain.Entities
 {
@@ -15,7 +11,7 @@ namespace PoupaguaDDD.Domain.Entities
 
         public int PredioId { get; set; }
         public virtual Predio Predio { get; set; }
-        
+
         public bool UltrapassouMetaDeUso(int quantidadeUsadaEmLitros)
         {
             return (quantidadeUsadaEmLitros > QuantidadeEmLitros);
