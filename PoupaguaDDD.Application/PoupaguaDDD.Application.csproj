@@ -34,10 +34,44 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationServices\AppServiceBase.cs" />
+    <Compile Include="ApplicationServices\ContaDeAguaAppService.cs" />
+    <Compile Include="ApplicationServices\EnderecoCompletoAppService.cs" />
+    <Compile Include="ApplicationServices\EnderecoDoPredioAppService.cs" />
+    <Compile Include="ApplicationServices\MetaGeralAppService.cs" />
+    <Compile Include="ApplicationServices\MetaIndividualAppService.cs" />
+    <Compile Include="ApplicationServices\MoradorAppService.cs" />
+    <Compile Include="ApplicationServices\PerfilDeConsumoAppService.cs" />
+    <Compile Include="ApplicationServices\PontoDeConsumoAppService.cs" />
+    <Compile Include="ApplicationServices\PrecoDaTarifaAppService.cs" />
+    <Compile Include="ApplicationServices\PredioAppService.cs" />
+    <Compile Include="ApplicationServices\TarifaAppService.cs" />
+    <Compile Include="ApplicationServices\UnidadeConsumidoraAppService.cs" />
+    <Compile Include="ApplicationServices\UsuarioAppService.cs" />
+    <Compile Include="ApplicationServices\ValorAlertaGeralAppService.cs" />
+    <Compile Include="Interface\IAppServiceBase.cs" />
+    <Compile Include="Interface\IContaDeAguaAppService.cs" />
+    <Compile Include="Interface\IEnderecoCompletoAppService.cs" />
+    <Compile Include="Interface\IEnderecoDoPredioAppService.cs" />
+    <Compile Include="Interface\IMetaGeralAppService.cs" />
+    <Compile Include="Interface\IMetaIndividualAppService.cs" />
+    <Compile Include="Interface\IMoradorAppService.cs" />
+    <Compile Include="Interface\IPerfilDeConsumoAppService.cs" />
+    <Compile Include="Interface\IPontoDeConsumoAppService.cs" />
+    <Compile Include="Interface\IPrecoDaTarifaAppService.cs" />
+    <Compile Include="Interface\IPredioAppService.cs" />
+    <Compile Include="Interface\ITarifaAppService.cs" />
+    <Compile Include="Interface\IUnidadeConsumidoraAppService.cs" />
+    <Compile Include="Interface\IUsuarioAppService.cs" />
+    <Compile Include="Interface\IValorAlertaGeralAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interface\" />
+    <ProjectReference Include="..\PoupaguaDDD.Domain\PoupaguaDDD.Domain.csproj">
+      <Project>{0ca06749-50dc-43d9-957e-58d2a4c9abaf}</Project>
+      <Name>PoupaguaDDD.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

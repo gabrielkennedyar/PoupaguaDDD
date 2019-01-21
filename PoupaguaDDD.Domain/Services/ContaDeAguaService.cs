@@ -17,8 +17,12 @@ namespace PoupaguaDDD.Domain.Services
         public float CalcularPrevisaoDoValorDaConta(ICollection<ContaDeAgua> contasPassadasDoPredio)
         {
             if (contasPassadasDoPredio == null) return 0;
-            else return contasPassadasDoPredio.FirstOrDefault(x => x.MesAnoDeReferencia == contasPassadasDoPredio.Max(y => y.MesAnoDeReferencia))
-                    .CalcularPrevisaoDoValorDaConta(contasPassadasDoPredio);
+            else
+            {
+                ContaDeAgua ultimaContaDeAguaDoPredio = contasPassadasDoPredio.FirstOrDefault(x => x.MesAnoDeReferencia == contasPassadasDoPredio.Max(y => y.MesAnoDeReferencia));
+                return ultimaContaDeAguaDoPredio.CalcularPrevisaoDoValorDaConta(contasPassadasDoPredio, ultimaContaDeAguaDoPredio);
+            }
+            
         }
     }
 }

@@ -25,10 +25,10 @@ namespace PoupaguaDDD.Domain.Entities
         /// </summary>
         /// <param name="contasPassadasDoPredio"></param>
         /// <returns></returns>
-        public float CalcularPrevisaoDoValorDaConta(ICollection<ContaDeAgua> contasPassadasDoPredio)
+        public float CalcularPrevisaoDoValorDaConta(ICollection<ContaDeAgua> contasPassadasDoPredio, ContaDeAgua ultimaContaDeAguaDoPredio)
         {
             int mediaDeConsumoGeralDoPredio = Convert.ToInt32((CalcularMediaDeConsumoGeral(contasPassadasDoPredio)));
-            float previsaoDoValorDaConta = Tarifa.CalcularTarifa(mediaDeConsumoGeralDoPredio); //Verificar como o entity framework irá mapear o ICollection
+            float previsaoDoValorDaConta = ultimaContaDeAguaDoPredio.Tarifa.CalcularTarifa(ultimaContaDeAguaDoPredio.Tarifa, mediaDeConsumoGeralDoPredio); //Verificar como o entity framework irá mapear o ICollection
             return previsaoDoValorDaConta;
         }
 
