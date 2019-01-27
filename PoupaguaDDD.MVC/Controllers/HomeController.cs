@@ -26,5 +26,10 @@ namespace PoupaguaDDD.MVC.Controllers
 
             return View();
         }
+
+        public ActionResult CreateUser()
+        {
+            return RedirectToAction("Index", "Usuario");
+        }
     }
 }

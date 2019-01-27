@@ -49,6 +49,15 @@
       <HintPath>..\packages\AutoMapper.8.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleInjector, Version=4.4.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.4.3\lib\net45\SimpleInjector.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web, Version=4.4.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.4.4.3\lib\net40\SimpleInjector.Integration.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.Web.Mvc, Version=4.4.3.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.Web.Mvc.4.4.3\lib\net40\SimpleInjector.Integration.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -132,14 +141,30 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\SimpleInjectorInitializer.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ContaDeAguaViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoCompletoViewModel.cs" />
+    <Compile Include="ViewModels\EnderecoDoPredioViewModel.cs" />
+    <Compile Include="ViewModels\MetaGeralViewModel.cs" />
+    <Compile Include="ViewModels\MetaIndividualViewModel.cs" />
+    <Compile Include="ViewModels\MoradorViewModel.cs" />
+    <Compile Include="ViewModels\PerfilDeConsumoViewModel.cs" />
+    <Compile Include="ViewModels\PontoDeConsumoViewModel.cs" />
+    <Compile Include="ViewModels\PrecoDaTarifaViewModel.cs" />
+    <Compile Include="ViewModels\PredioViewModel.cs" />
+    <Compile Include="ViewModels\TarifaViewModel.cs" />
+    <Compile Include="ViewModels\UnidadeConsumidoraViewModel.cs" />
+    <Compile Include="ViewModels\UsuarioViewModel.cs" />
+    <Compile Include="ViewModels\ValorAlertaGeralViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -177,10 +202,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuario\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -203,6 +228,10 @@
     <ProjectReference Include="..\PoupaguaDDD.Domain\PoupaguaDDD.Domain.csproj">
       <Project>{0ca06749-50dc-43d9-957e-58d2a4c9abaf}</Project>
       <Name>PoupaguaDDD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PoupaguaDDD.Infra.CrossCutting.IoC\PoupaguaDDD.Infra.CrossCutting.IoC.csproj">
+      <Project>{39a20f51-5a7c-4eed-a2e6-ae2099fe23ab}</Project>
+      <Name>PoupaguaDDD.Infra.CrossCutting.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
