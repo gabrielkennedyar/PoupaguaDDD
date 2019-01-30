@@ -9,7 +9,7 @@ namespace PoupaguaDDD.Infra.Data.EntityConfig
         {
             HasKey(x => x.Id);
 
-            Property(x => x.CEP).IsRequired().HasColumnType("char").HasMaxLength(8);
+            Property(x => x.CEP).IsRequired().HasMaxLength(8).IsFixedLength();
             Property(x => x.Logradouro).IsRequired().HasMaxLength(250);
             Property(x => x.Numero).IsRequired();
             Property(x => x.Complemento).IsRequired();
