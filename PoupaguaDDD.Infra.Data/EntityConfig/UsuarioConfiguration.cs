@@ -9,10 +9,10 @@ namespace PoupaguaDDD.Infra.Data.EntityConfig
         {
             HasKey(x => x.Id);
 
-            Property(x => x.Email).IsRequired().HasMaxLength(250);
-            Property(x => x.PasswordHash).IsRequired();
+            Property(x => x.Id).IsRequired().HasMaxLength(128);
+            Property(x => x.Email).IsRequired().HasMaxLength(256);
+
             Property(x => x.Nome).IsRequired().HasMaxLength(150);
-            Property(x => x.PhoneNumber).IsOptional().HasMaxLength(12);
             Property(x => x.CPF).IsOptional().HasMaxLength(11).IsFixedLength();
             Property(x => x.DataNasc).IsOptional();
             Property(x => x.Ativo).IsRequired();
@@ -22,6 +22,8 @@ namespace PoupaguaDDD.Infra.Data.EntityConfig
 
             HasIndex(x => x.Email).IsUnique();
             HasIndex(x => x.CPF).IsUnique();
+
+            ToTable("AspNetUsers");
         }
     }
 }
