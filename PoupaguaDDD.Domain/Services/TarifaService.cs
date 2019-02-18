@@ -4,11 +4,11 @@ using PoupaguaDDD.Domain.Interfaces.Services;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class TarifaService : ServiceBase<Tarifa>, ITarifaService
+    public class TarifaService : ITarifaService
     {
         private readonly ITarifaRepository _tarifaRepository;
 
-        public TarifaService(ITarifaRepository tarifaRepository) : base(tarifaRepository)
+        public TarifaService(ITarifaRepository tarifaRepository)
         {
             _tarifaRepository = tarifaRepository;
         }
@@ -16,6 +16,11 @@ namespace PoupaguaDDD.Domain.Services
         public float CalcularTarifa(Tarifa tarifaParaCalculo, int mediaDeLitros)
         {
             return tarifaParaCalculo.CalcularTarifa(tarifaParaCalculo, mediaDeLitros);
+        }
+
+        public void Dispose()
+        {
+            _tarifaRepository.Dispose();
         }
     }
 }

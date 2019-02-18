@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IPrecoDaTarifaRepository : IRepositoryBase<PrecoDaTarifa>
+    public interface IPrecoDaTarifaRepository : IRepositoryRead<PrecoDaTarifa>
     {
     }
 }

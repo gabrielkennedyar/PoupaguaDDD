@@ -4,13 +4,16 @@ using System.Linq;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class PerfilDeConsumo
+    public class PerfilDeConsumo : EntityBase
     {
-        public int Id { get; set; }
         public double MediaDeConsumoMensal { get; private set; }
-        public DateTime DataCadastro { get; set; }
 
         public virtual UnidadeConsumidora UnidadeConsumidora { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         /// <summary>
         /// Calcula os litros utilizados até o dia atual do mes de uma unidade consumidora

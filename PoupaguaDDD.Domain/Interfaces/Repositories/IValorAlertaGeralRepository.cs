@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IValorAlertaGeralRepository : IRepositoryBase<ValorAlertaGeral>
+    public interface IValorAlertaGeralRepository : IRepositoryRead<ValorAlertaGeral>
     {
     }
 }

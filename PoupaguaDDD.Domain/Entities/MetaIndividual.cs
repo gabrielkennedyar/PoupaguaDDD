@@ -2,15 +2,18 @@
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class MetaIndividual
+    public class MetaIndividual : EntityBase
     {
-        public int Id { get; set; }
         public DateTime MesAno { get; set; }
         public int QuantidadeDeEconomiaEmM3 { get; set; }
-        public DateTime DataCadastro { get; set; }
 
-        public int UnidadeConsumidoraId { get; set; }
+        public string UnidadeConsumidoraId { get; set; }
         public virtual UnidadeConsumidora UnidadeConsumidora { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         public bool VerificarSeUltrapassouEconomia(MetaIndividual ultimaMetaIndividualDaUC, int quantidadeUsadaEmLitros)
         {

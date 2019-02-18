@@ -4,21 +4,22 @@ using System.Linq;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class ContaDeAgua
+    public class ContaDeAgua : EntityBase
     {
-        public int Id { get; set; }
         public DateTime MesAnoDeReferencia { get; set; }
         public int DiaDeVencimento { get; set; }
         public int LitrosUtilizados { get; set; }
         public float ValorDePagamento { get; set; }
-        public DateTime DataCadastro { get; set; }
 
         public virtual Tarifa Tarifa { get; set; }
 
-        public int PredioId { get; set; }
+        public string PredioId { get; set; }
         public virtual Predio Predio { get; set; }
 
-
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         /// <summary>
         /// Tenta prevê o valor de pagamento do mês atual a partir das contas de águas anteriores à este mês

@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IPerfilDeConsumoRepository : IRepositoryBase<PerfilDeConsumo>
+    public interface IPerfilDeConsumoRepository : IRepositoryRead<PerfilDeConsumo>
     {
     }
 }

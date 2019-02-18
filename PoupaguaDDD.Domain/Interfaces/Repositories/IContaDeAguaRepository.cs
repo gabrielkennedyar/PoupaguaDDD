@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IContaDeAguaRepository : IRepositoryBase<ContaDeAgua>
+    public interface IContaDeAguaRepository : IRepositoryRead<ContaDeAgua>
     {
     }
 }

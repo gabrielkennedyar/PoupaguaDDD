@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class PerfilDeConsumoService : ServiceBase<PerfilDeConsumo>, IPerfilDeConsumoService
+    public class PerfilDeConsumoService : IPerfilDeConsumoService
     {
         private readonly IPerfilDeConsumoRepository _perfilDeConsumoRepository;
 
-        public PerfilDeConsumoService(IPerfilDeConsumoRepository perfilDeConsumoRepository) : base(perfilDeConsumoRepository)
+        public PerfilDeConsumoService(IPerfilDeConsumoRepository perfilDeConsumoRepository)
         {
             _perfilDeConsumoRepository = perfilDeConsumoRepository;
         }
@@ -22,6 +22,11 @@ namespace PoupaguaDDD.Domain.Services
         public double CalcularQuantDeLitrosAcumuladosNoMes(ICollection<Morador> moradoresDoPredio, ICollection<Morador> moradoresDaUC, ICollection<ContaDeAgua> contasPassadasDoPredio, PerfilDeConsumo perfilDeConsumoDoUsuario)
         {
             return perfilDeConsumoDoUsuario.CalcularQuantDeLitrosAcumuladosNoMes(moradoresDoPredio, moradoresDaUC, contasPassadasDoPredio, perfilDeConsumoDoUsuario);
+        }
+
+        public void Dispose()
+        {
+            _perfilDeConsumoRepository.Dispose();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace PoupaguaDDD.Infra.CrossCutting.IoC
 
             //Base
             container.Register(typeof(IServiceBase<>), typeof(ServiceBase<>));
-            container.Register(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            container.Register(typeof(IRepositoryRead<>), typeof(RepositoryBase<>));
             container.Register(typeof(IAppServiceBase<>), typeof(AppServiceBase<>));
 
             //All

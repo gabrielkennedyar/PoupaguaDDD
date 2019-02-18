@@ -1,22 +1,46 @@
 ﻿using PoupaguaDDD.Domain.Entities;
 using PoupaguaDDD.Domain.Interfaces.Repositories;
 using PoupaguaDDD.Domain.Interfaces.Services;
-using System.Collections.Generic;
+using PoupaguaDDD.Domain.Validations.Usuarios;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class UsuarioService : ServiceBase<Usuario>, IUsuarioService
+    public class UsuarioService : IUsuarioService
     {
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository) : base(usuarioRepository)
+        public UsuarioService(IUsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
         }
 
-        public IEnumerable<Usuario> BuscarPorEmail(string email)
+        public Usuario Adicionar(Usuario usuario)
         {
-            return _usuarioRepository.BuscarPorEmail(email);
+            if (!usuario.EhValido()) return usuario;
+
+            usuario.ValidationResult = new UsuarioEstaAptoParaCadastroValidation(_usuarioRepository).Validate(usuario);
+
+            if (usuario.ValidationResult.IsValid) _usuarioRepository.Adicionar(usuario);
+
+            return usuario;
         }
+
+        public Usuario Atualizar(Usuario usuario)
+        {
+            if (!usuario.EhValido()) return usuario;
+
+            _usuarioRepository.Atualizar(usuario);
+            return usuario;
+        }
+
+        public void Remover(string id)
+        {
+            _usuarioRepository.Remover(id);
+        }
+
+        public void Dispose()
+        {
+            _usuarioRepository.Dispose();
+        }        
     }
 }

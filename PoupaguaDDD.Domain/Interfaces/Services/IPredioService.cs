@@ -1,8 +1,8 @@
-﻿using PoupaguaDDD.Domain.Entities;
+﻿using System;
 
 namespace PoupaguaDDD.Domain.Interfaces.Services
 {
-    public interface IPredioService : IServiceBase<Predio>
+    public interface IPredioService : IDisposable
     {
     }
 }

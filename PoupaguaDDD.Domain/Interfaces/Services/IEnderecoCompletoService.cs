@@ -1,8 +1,8 @@
-﻿using PoupaguaDDD.Domain.Entities;
+﻿using System;
 
 namespace PoupaguaDDD.Domain.Interfaces.Services
 {
-    public interface IEnderecoCompletoService : IServiceBase<EnderecoCompleto>
+    public interface IEnderecoCompletoService : IDisposable
     {
     }
 }

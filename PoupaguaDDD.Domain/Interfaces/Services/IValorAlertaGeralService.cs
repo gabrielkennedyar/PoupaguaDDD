@@ -1,8 +1,7 @@
-﻿using PoupaguaDDD.Domain.Entities;
+﻿using System;
 
 namespace PoupaguaDDD.Domain.Interfaces.Services
 {
-    public interface IValorAlertaGeralService : IServiceBase<ValorAlertaGeral>
-    {
+    public interface IValorAlertaGeralService : IDisposable
     }
 }

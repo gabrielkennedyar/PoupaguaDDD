@@ -31,12 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ContaDeAgua.cs" />
     <Compile Include="Entities\EnderecoCompleto.cs" />
     <Compile Include="Entities\EnderecoDoPredio.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Entities\MetaGeral.cs" />
     <Compile Include="Entities\MetaIndividual.cs" />
     <Compile Include="Entities\Morador.cs" />
@@ -48,6 +52,7 @@
     <Compile Include="Entities\UnidadeConsumidora.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Entities\ValorAlertaGeral.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IContaDeAguaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEnderecoCompletoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEnderecoDoPredioRepository.cs" />
@@ -58,7 +63,8 @@
     <Compile Include="Interfaces\Repositories\IPontoDeConsumoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPrecoDaTarifaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPredioRepository.cs" />
-    <Compile Include="Interfaces\Repositories\IRepositoryBase.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryRead.cs" />
+    <Compile Include="Interfaces\Repositories\IRepositoryWrite.cs" />
     <Compile Include="Interfaces\Repositories\ITarifaRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnidadeConsumidoraRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuarioRepository.cs" />
@@ -73,7 +79,6 @@
     <Compile Include="Interfaces\Services\IPontoDeConsumoService.cs" />
     <Compile Include="Interfaces\Services\IPrecoDaTarifaService.cs" />
     <Compile Include="Interfaces\Services\IPredioService.cs" />
-    <Compile Include="Interfaces\Services\IServiceBase.cs" />
     <Compile Include="Interfaces\Services\ITarifaService.cs" />
     <Compile Include="Interfaces\Services\IUnidadeConsumidoraService.cs" />
     <Compile Include="Interfaces\Services\IUsuarioService.cs" />
@@ -89,12 +94,25 @@
     <Compile Include="Services\PontoDeConsumoService.cs" />
     <Compile Include="Services\PrecoDaTarifaService.cs" />
     <Compile Include="Services\PredioService.cs" />
-    <Compile Include="Services\ServiceBase.cs" />
     <Compile Include="Services\TarifaService.cs" />
     <Compile Include="Services\UnidadeConsumidoraService.cs" />
     <Compile Include="Services\UsuarioService.cs" />
     <Compile Include="Services\ValorAlertaGeralService.cs" />
+    <Compile Include="Specifications\GenericSpecification.cs" />
+    <Compile Include="Specifications\Usuarios\UsuarioDevePossuirCpfUnicoSpecification.cs" />
+    <Compile Include="Specifications\Usuarios\UsuarioDevePossuirEmailUnicoSpecification.cs" />
+    <Compile Include="Specifications\Usuarios\UsuarioDeveTerCpfValidoSpecification.cs" />
+    <Compile Include="Specifications\Usuarios\UsuarioDeveTerEmailValidoSpecification.cs" />
+    <Compile Include="Specifications\Usuarios\UsuarioDeveTerMaisDeDezoitoAnosSpecification.cs" />
+    <Compile Include="Validations\Usuarios\UsuarioEstaAptoParaCadastroValidation.cs" />
+    <Compile Include="Validations\Usuarios\UsuarioEstaConsistenteValidation.cs" />
+    <Compile Include="Value Objects\Usuarios\CPF.cs" />
+    <Compile Include="Value Objects\Usuarios\DataNasc.cs" />
+    <Compile Include="Value Objects\Usuarios\Email.cs" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,8 @@
-﻿using PoupaguaDDD.Domain.Entities;
+﻿using System;
 
 namespace PoupaguaDDD.Domain.Interfaces.Services
 {
-    public interface IUnidadeConsumidoraService : IServiceBase<UnidadeConsumidora>
+    public interface IUnidadeConsumidoraService : IDisposable
     {
     }
 }

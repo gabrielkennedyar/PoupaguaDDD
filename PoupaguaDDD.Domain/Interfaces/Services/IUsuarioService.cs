@@ -1,10 +1,12 @@
 ﻿using PoupaguaDDD.Domain.Entities;
-using System.Collections.Generic;
+using System;
 
 namespace PoupaguaDDD.Domain.Interfaces.Services
 {
-    public interface IUsuarioService : IServiceBase<Usuario>
+    public interface IUsuarioService : IDisposable
     {
-        IEnumerable<Usuario> BuscarPorEmail(string email);
+        Usuario Adicionar(Usuario usuario);
+        Usuario Atualizar(Usuario usuario);
+        void Remover(string id);
     }
 }

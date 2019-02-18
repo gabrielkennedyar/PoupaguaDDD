@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IEnderecoCompletoRepository : IRepositoryBase<EnderecoCompleto>
+    public interface IEnderecoCompletoRepository : IRepositoryRead<EnderecoCompleto>
     {
     }
 }

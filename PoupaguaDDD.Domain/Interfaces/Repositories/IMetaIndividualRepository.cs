@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IMetaIndividualRepository : IRepositoryBase<MetaIndividual>
+    public interface IMetaIndividualRepository : IRepositoryRead<MetaIndividual>
     {
     }
 }

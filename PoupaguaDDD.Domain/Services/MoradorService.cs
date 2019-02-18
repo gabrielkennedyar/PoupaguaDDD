@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class MoradorService : ServiceBase<Morador>, IMoradorService
+    public class MoradorService : IMoradorService
     {
         private readonly IMoradorRepository _moradorRepository;
 
-        public MoradorService(IMoradorRepository moradorRepository) : base(moradorRepository)
+        public MoradorService(IMoradorRepository moradorRepository)
         {
             _moradorRepository = moradorRepository;
         }
@@ -22,6 +22,11 @@ namespace PoupaguaDDD.Domain.Services
         public double CalcularPorcentagemDeUso(ICollection<Morador> moradoresDoPredio, Morador moradorParaCalculo)
         {
             return moradorParaCalculo.CalcularPorcentagemDeUso(moradoresDoPredio, moradorParaCalculo);
+        }
+
+        public void Dispose()
+        {
+            _moradorRepository.Dispose();
         }
     }
 }

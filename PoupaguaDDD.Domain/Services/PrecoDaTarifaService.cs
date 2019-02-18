@@ -4,11 +4,11 @@ using PoupaguaDDD.Domain.Interfaces.Services;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class PrecoDaTarifaService : ServiceBase<PrecoDaTarifa>, IPrecoDaTarifaService
+    public class PrecoDaTarifaService : IPrecoDaTarifaService
     {
         private readonly IPrecoDaTarifaRepository _precoDaTarifaRepository;
 
-        public PrecoDaTarifaService(IPrecoDaTarifaRepository precoDaTarifaRepository) : base(precoDaTarifaRepository)
+        public PrecoDaTarifaService(IPrecoDaTarifaRepository precoDaTarifaRepository)
         {
             _precoDaTarifaRepository = precoDaTarifaRepository;
         }
@@ -16,6 +16,11 @@ namespace PoupaguaDDD.Domain.Services
         public float CalcularPreco(PrecoDaTarifa precoDaTarifaParaCalculo, int mediaDeLitros)
         {
             return precoDaTarifaParaCalculo.CalcularPreco(precoDaTarifaParaCalculo, mediaDeLitros);
+        }
+
+        public void Dispose()
+        {
+            _precoDaTarifaRepository.Dispose();
         }
     }
 }

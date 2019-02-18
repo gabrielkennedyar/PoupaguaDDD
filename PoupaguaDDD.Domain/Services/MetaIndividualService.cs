@@ -4,11 +4,11 @@ using PoupaguaDDD.Domain.Interfaces.Services;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class MetaIndividualService : ServiceBase<MetaIndividual>, IMetaIndividualService
+    public class MetaIndividualService : IMetaIndividualService
     {
         private readonly IMetaIndividualRepository _metaIndividualRepository;
 
-        public MetaIndividualService(IMetaIndividualRepository metaIndividualRepository) : base(metaIndividualRepository)
+        public MetaIndividualService(IMetaIndividualRepository metaIndividualRepository)
         {
             _metaIndividualRepository = metaIndividualRepository;
         }
@@ -21,6 +21,11 @@ namespace PoupaguaDDD.Domain.Services
         public bool VerificarSeUltrapassouEconomia(MetaIndividual ultimaMetaIndividualDaUC, int quantidadeUsadaEmLitros)
         {
             return ultimaMetaIndividualDaUC.VerificarSeUltrapassouEconomia(ultimaMetaIndividualDaUC, quantidadeUsadaEmLitros);
+        }
+
+        public void Dispose()
+        {
+            _metaIndividualRepository.Dispose();
         }
     }
 }

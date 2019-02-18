@@ -4,16 +4,19 @@ using System.Linq;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class Tarifa
+    public class Tarifa : EntityBase
     {
-        public int Id { get; set; }
         public DateTime MesAnoDeReferencia { get; set; }
         public float PrecoDoEsgoto { get; set; }
-        public DateTime DataCadastro { get; set; }
 
         public virtual ContaDeAgua ContaDeAgua { get; set; }
 
         public virtual ICollection<PrecoDaTarifa> PrecosDasTarifas { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         public float CalcularTarifa(Tarifa tarifaParaCalculo, int mediaDeLitros)
         {

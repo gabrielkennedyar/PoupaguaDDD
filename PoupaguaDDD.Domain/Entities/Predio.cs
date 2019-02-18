@@ -3,11 +3,9 @@ using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class Predio
+    public class Predio : EntityBase
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
-        public DateTime DataCadastro { get; set; }
 
         public virtual EnderecoDoPredio EnderecoDoPredio { get; set; }
 
@@ -15,5 +13,10 @@ namespace PoupaguaDDD.Domain.Entities
         public virtual ICollection<ContaDeAgua> ContasDeAgua { get; set; }
         public virtual ICollection<MetaGeral> MetasGerais { get; set; }
         public virtual ICollection<ValorAlertaGeral> ValoresAlertaGeral { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
     }
 }

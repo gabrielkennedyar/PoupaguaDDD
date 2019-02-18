@@ -2,15 +2,18 @@
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class PrecoDaTarifa
+    public class PrecoDaTarifa : EntityBase
     {
-        public int Id { get; set; }
         public int Nivel { get; set; }
         public float PrecoMilLitros { get; set; }
-        public DateTime DataCadastro { get; set; }
 
-        public int TarifaId { get; set; }
+        public string TarifaId { get; set; }
         public virtual Tarifa Tarifa { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         public float CalcularPreco(PrecoDaTarifa precoDaTarifaParaCalculo, int mediaDeLitros)
         {

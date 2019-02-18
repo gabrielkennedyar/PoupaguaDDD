@@ -2,9 +2,8 @@
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class EnderecoDoPredio
+    public class EnderecoDoPredio : EntityBase
     {
-        public int Id { get; set; }
         public string CEP { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }
@@ -13,9 +12,12 @@ namespace PoupaguaDDD.Domain.Entities
         public string Cidade { get; set; }
         public string Estado { get; set; }
         public string Pais { get; set; }
-        public DateTime DataCadastro { get; set; }
 
         public Predio Predio { get; set; }
 
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
     }
 }

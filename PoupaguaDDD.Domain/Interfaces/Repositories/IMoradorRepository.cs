@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IMoradorRepository : IRepositoryBase<Morador>
+    public interface IMoradorRepository : IRepositoryRead<Morador>
     {
     }
 }

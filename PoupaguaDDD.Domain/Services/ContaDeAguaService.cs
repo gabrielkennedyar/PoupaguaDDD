@@ -6,23 +6,32 @@ using System.Linq;
 
 namespace PoupaguaDDD.Domain.Services
 {
-    public class ContaDeAguaService : ServiceBase<ContaDeAgua>, IContaDeAguaService
+    public class ContaDeAguaService : IContaDeAguaService
     {
         private readonly IContaDeAguaRepository _contaDeAguaRepository;
 
-        public ContaDeAguaService(IContaDeAguaRepository contaDeAguaRepository) : base(contaDeAguaRepository)
+        public ContaDeAguaService(IContaDeAguaRepository contaDeAguaRepository)
         {
             _contaDeAguaRepository = contaDeAguaRepository;
         }
+
         public float CalcularPrevisaoDoValorDaConta(ICollection<ContaDeAgua> contasPassadasDoPredio)
         {
-            if (contasPassadasDoPredio == null) return 0;
+            if (contasPassadasDoPredio == null)
+            {
+                return 0;
+            }
             else
             {
                 ContaDeAgua ultimaContaDeAguaDoPredio = contasPassadasDoPredio.FirstOrDefault(x => x.MesAnoDeReferencia == contasPassadasDoPredio.Max(y => y.MesAnoDeReferencia));
                 return ultimaContaDeAguaDoPredio.CalcularPrevisaoDoValorDaConta(contasPassadasDoPredio, ultimaContaDeAguaDoPredio);
             }
             
+        }
+
+        public void Dispose()
+        {
+            _contaDeAguaRepository.Dispose();
         }
     }
 }

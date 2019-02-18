@@ -2,14 +2,17 @@
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class ValorAlertaGeral
+    public class ValorAlertaGeral : EntityBase
     {
-        public int Id { get; set; }
         public DateTime MesAno { get; set; }
         public int QuantidadeEmLitros { get; set; }
-        public DateTime DataCadastro { get; set; }
 
-        public int PredioId { get; set; }
+        public string PredioId { get; set; }
         public virtual Predio Predio { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
     }
 }

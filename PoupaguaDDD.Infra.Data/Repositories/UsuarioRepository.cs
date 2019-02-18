@@ -1,15 +1,33 @@
 ﻿using PoupaguaDDD.Domain.Entities;
 using PoupaguaDDD.Domain.Interfaces.Repositories;
-using System.Collections.Generic;
+using PoupaguaDDD.Infra.Data.Context;
 using System.Linq;
 
 namespace PoupaguaDDD.Infra.Data.Repositories
 {
     public class UsuarioRepository : RepositoryBase<Usuario>, IUsuarioRepository
     {
-        public IEnumerable<Usuario> BuscarPorEmail(string email)
+        public UsuarioRepository(PoupaguaContext poupaguaContext) : base(poupaguaContext)
         {
-            return Db.Usuarios.Where(x => x.Email == email);
+
+        }
+
+        public Usuario BuscarPorEmail(string email)
+        {
+            return Db.Usuarios.FirstOrDefault(x => x.Email == email);
+        }
+
+        public Usuario BuscarPorCpf(string cpf)
+        {
+            return Db.Usuarios.FirstOrDefault(x => x.CPF == cpf);
+        }
+
+        public override void Remover(string id)
+        {
+            var usuario = ObterPorId(id);
+            usuario.DefinirComoExcluido();
+
+            Atualizar(usuario);
         }
     }
 }

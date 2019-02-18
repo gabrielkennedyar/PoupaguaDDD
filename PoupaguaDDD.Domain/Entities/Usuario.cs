@@ -1,16 +1,11 @@
-﻿using System;
+﻿using PoupaguaDDD.Domain.Validations.Usuarios;
+using System;
 using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class Usuario
+    public class Usuario : EntityBase
     {
-        public Usuario()
-        {
-            Id = Guid.NewGuid().ToString();
-        }
-
-        public string Id { get; set; }
         public virtual string Email { get; set; }
         public virtual bool EmailConfirmed { get; set; }
         public virtual string PasswordHash { get; set; }
@@ -27,9 +22,38 @@ namespace PoupaguaDDD.Domain.Entities
         public string CPF { get; set; }
         public DateTime DataNasc { get; set; }
         public bool Ativo { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public bool Excluido { get; set; }
 
         public virtual EnderecoCompleto Endereco { get; set; }
         public virtual UnidadeConsumidora UnidadeConsumidora { get; set; }
+
+        public override bool EhValido()
+        {
+            ValidationResult = new UsuarioEstaConsistenteValidation().Validate(this);
+            return ValidationResult.IsValid;
+        }
+
+        public void AdicionarEndereco(EnderecoCompleto enderecoCompleto)
+        {
+            if (!enderecoCompleto.EhValido())
+            {
+                AdicionarErrosValidacao(enderecoCompleto.ValidationResult);
+                return;
+            }
+
+            Endereco = enderecoCompleto;
+        }
+
+        public void DefinirComoAtivo()
+        {
+            Ativo = true;
+            Excluido = false;
+        }
+
+        public void DefinirComoExcluido()
+        {
+            Ativo = false;
+            Excluido = true;
+        }        
     }
 }

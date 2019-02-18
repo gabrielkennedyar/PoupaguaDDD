@@ -3,11 +3,9 @@ using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class UnidadeConsumidora
+    public class UnidadeConsumidora : EntityBase
     {
-        public int Id { get; set; }
         public int Apto { get; set; }
-        public DateTime DataCadastro { get; set; }
 
         public virtual Usuario Usuario { get; set; }
         public virtual PerfilDeConsumo PerfilDeConsumo { get; set; }
@@ -16,5 +14,10 @@ namespace PoupaguaDDD.Domain.Entities
         public virtual ICollection<Morador> Moradores { get; set; }
 
         public virtual ICollection<MetaIndividual> MetasIndividuais { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
     }
 }

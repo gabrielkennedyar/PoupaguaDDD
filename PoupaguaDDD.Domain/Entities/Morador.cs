@@ -3,15 +3,18 @@ using System.Collections.Generic;
 
 namespace PoupaguaDDD.Domain.Entities
 {
-    public class Morador
+    public class Morador : EntityBase
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
         public double MediaDeHoras { get; private set; }
-        public DateTime DataCadastro { get; set; }
 
-        public int UnidadeConsumidoraId { get; set; }
+        public string UnidadeConsumidoraId { get; set; }
         public virtual UnidadeConsumidora UnidadeConsumidora { get; set; }
+
+        public override bool EhValido()
+        {
+            return true; //TODO AdicionarValidationResult
+        }
 
         /// <summary>
         /// Calcula a média de horas que um morador fica em casa de acordo com as horas que ele fica em casa de cada dia da semana

@@ -2,7 +2,7 @@
 
 namespace PoupaguaDDD.Domain.Interfaces.Repositories
 {
-    public interface IPredioRepository : IRepositoryBase<Predio>
+    public interface IPredioRepository : IRepositoryRead<Predio>
     {
     }
 }
